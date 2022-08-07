@@ -30,7 +30,7 @@ public class Restaurante {
 
     @Override
     public String toString() {
-        return "Ativo: " + ativo + "; Aberto: " + aberto + "; Taxa Frete: " + taxaFrete + "; Data Pedido: " + getDataPedido();
+        return "Active: " + ativo + "; Open: " + aberto + "; Freight Fee: " + taxaFrete + "; Order Date: " + getDataPedido();
     }
 
     private String getDataPedido() {
