@@ -16,6 +16,6 @@ public class Gerente extends ModelUtils {
 
     @Override
     public String toString() {
-        return matricula + ";" + nome + ";" + senha;
+        return "Registry: " + matricula + "; Name: " + nome + "; Password: " + senha;
     }
 }
