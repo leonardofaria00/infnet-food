@@ -2,7 +2,7 @@ package br.infnet.infnetfood.domain.data.model.refeicao.janta;
 
 public enum TipoJanta {
 
-    NEGOCIOS("Business"), ROMANTICO("Romântico");
+    NEGOCIOS("Business"), ROMANTICO("Romantic"), LAZER("leisure");
 
     private final String type;
 

@@ -33,7 +33,7 @@ class JantaTest implements ApplicationRunner {
         j3.setUuid(UUID.randomUUID().toString());
         j3.setNome("Brownie de Chocolate");
         j3.setValor(BigDecimal.valueOf(35.00));
-        j3.setTipoJanta(TipoJanta.NEGOCIOS);
+        j3.setTipoJanta(TipoJanta.LAZER);
         System.out.println(j3);
     }
 }
