@@ -140,25 +140,64 @@
             <th scope="row">1</th>
             <td>uuid</td>
             <td>String</td>
-            <td>Identificador único do petisco.</td>
+            <td>Identificador único do almoço.</td>
         </tr>
         <tr>
             <th scope="row">2</th>
             <td>nome</td>
             <td>String</td>
-            <td>Nome do petisco.</td>
+            <td>Nome do almoço.</td>
         </tr>
         <tr>
             <th scope="row">3</th>
             <td>valor</td>
             <td>BigDecimal</td>
-            <td>Valor do petisco.</td>
+            <td>Valor do almoço.</td>
         </tr>
         <tr>
             <th scope="row">4</th>
             <td>ingrediente</td>
             <td>String</td>
             <td>Ingredientes do almoço.</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr>
+    <h3>Classe: Janta</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Attribute</th>
+            <th scope="col">Type</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>uuid</td>
+            <td>String</td>
+            <td>Identificador único da janta.</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>nome</td>
+            <td>String</td>
+            <td>Nome da janta.</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>valor</td>
+            <td>BigDecimal</td>
+            <td>Valor da janta.</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>tipoJanta</td>
+            <td>TipoJanta</td>
+            <td>Tipo de janta.</td>
         </tr>
         </tbody>
     </table>
