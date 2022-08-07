@@ -1,13 +1,11 @@
 package br.infnet.infnetfood.domain.data.model.restaurante;
 
 
-import br.infnet.infnetfood.domain.data.model.utils.ModelUtils;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Restaurante extends ModelUtils {
+public class Restaurante {
 
     private Boolean ativo;
     private Boolean aberto;

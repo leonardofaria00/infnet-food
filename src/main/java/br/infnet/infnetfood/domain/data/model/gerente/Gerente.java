@@ -1,8 +1,6 @@
 package br.infnet.infnetfood.domain.data.model.gerente;
 
-import br.infnet.infnetfood.domain.data.model.utils.ModelUtils;
-
-public class Gerente extends ModelUtils {
+public class Gerente {
 
     private final Integer matricula;
     private final String nome;
