@@ -1,12 +1,16 @@
 package br.infnet.infnetfood.domain.data.model.refeicao;
 
+import br.infnet.infnetfood.domain.data.printer.IPrinter;
+
 import java.math.BigDecimal;
 
-public abstract class Refeicao {
+public abstract class Refeicao implements IPrinter {
 
     private String uuid;
     private String nome;
     private BigDecimal valor;
+
+    public abstract float calcularVenda();
 
     public void setUuid(String uuid) {
         this.uuid = uuid;

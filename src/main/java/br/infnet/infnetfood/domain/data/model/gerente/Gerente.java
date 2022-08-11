@@ -1,6 +1,8 @@
 package br.infnet.infnetfood.domain.data.model.gerente;
 
-public class Gerente {
+import br.infnet.infnetfood.domain.data.printer.IPrinter;
+
+public class Gerente implements IPrinter {
 
     private final Integer matricula;
     private final String nome;
@@ -15,5 +17,11 @@ public class Gerente {
     @Override
     public String toString() {
         return "Registry: " + matricula + "; Name: " + nome + "; Password: " + senha;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Gerente");
+        System.out.println(this);
     }
 }

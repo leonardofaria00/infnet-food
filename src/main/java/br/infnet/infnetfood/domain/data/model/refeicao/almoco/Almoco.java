@@ -1,8 +1,9 @@
 package br.infnet.infnetfood.domain.data.model.refeicao.almoco;
 
 import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
+import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
-public class Almoco extends Refeicao {
+public class Almoco extends Refeicao implements IPrinter {
 
     private String ingrediente;
 
@@ -11,7 +12,18 @@ public class Almoco extends Refeicao {
     }
 
     @Override
+    public float calcularVenda() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return super.toString() + "; " + "Ingredient: " + ingrediente;
+    }
+
+    @Override
+    public void impressao() {
+        System.out.println("Almoço");
+        System.out.println(this);
     }
 }
