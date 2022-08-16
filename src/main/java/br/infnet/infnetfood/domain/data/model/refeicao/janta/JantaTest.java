@@ -15,7 +15,7 @@ class JantaTest implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        System.out.println("#Janta#");
+        System.out.println("#Janta");
         final Janta j1 = new Janta();
         j1.setUuid(UUID.randomUUID().toString());
         j1.setNome("Salada Caesar de Camarão");

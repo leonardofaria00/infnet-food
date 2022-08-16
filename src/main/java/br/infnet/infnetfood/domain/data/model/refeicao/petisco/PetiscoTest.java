@@ -15,7 +15,7 @@ class PetiscoTest implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        System.out.println("#Petiscos#");
+        System.out.println("#Petiscos");
 
         final Petisco p1 = new Petisco();
         p1.setUuid(UUID.randomUUID().toString());

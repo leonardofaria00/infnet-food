@@ -14,13 +14,13 @@ class GerenteTest implements ApplicationRunner {
         System.out.println("#Gerente");
 
         final Gerente g1 = new Gerente(2022123, "Maria", "@#$%%");
-        System.out.println(g1);
+        g1.impressao();
 
         final Gerente g2 = new Gerente(2022456, "João", "!@#$%¨&*");
-        System.out.println(g2);
+        g2.impressao();
 
         final Gerente g3 = new Gerente(2022789, "José", "@#153777999");
-        System.out.println(g3);
+        g3.impressao();
 
     }
 }

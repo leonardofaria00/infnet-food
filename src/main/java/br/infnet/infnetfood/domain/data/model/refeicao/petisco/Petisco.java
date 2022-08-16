@@ -23,7 +23,6 @@ public class Petisco extends Refeicao implements IPrinter {
 
     @Override
     public void impressao() {
-        System.out.println("Petisco");
         System.out.println(this);
     }
 }

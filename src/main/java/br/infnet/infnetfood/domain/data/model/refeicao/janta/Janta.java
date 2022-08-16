@@ -23,7 +23,6 @@ public class Janta extends Refeicao implements IPrinter {
 
     @Override
     public void impressao() {
-        System.out.println("Janta");
         System.out.println(this);
     }
 }

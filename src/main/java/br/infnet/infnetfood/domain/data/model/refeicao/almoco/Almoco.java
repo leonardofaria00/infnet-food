@@ -23,7 +23,6 @@ public class Almoco extends Refeicao implements IPrinter {
 
     @Override
     public void impressao() {
-        System.out.println("Almoço");
         System.out.println(this);
     }
 }

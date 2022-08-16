@@ -21,7 +21,6 @@ public class Gerente implements IPrinter {
 
     @Override
     public void impressao() {
-        System.out.println("Gerente");
         System.out.println(this);
     }
 }

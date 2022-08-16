@@ -15,7 +15,7 @@ class AlmocoTest implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        System.out.println("#Almoço#");
+        System.out.println("#Almoço");
 
         final Almoco a1 = new Almoco();
         a1.setUuid(UUID.randomUUID().toString());
