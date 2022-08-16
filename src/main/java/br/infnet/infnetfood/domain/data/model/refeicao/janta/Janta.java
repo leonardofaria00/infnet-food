@@ -3,6 +3,9 @@ package br.infnet.infnetfood.domain.data.model.refeicao.janta;
 import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 public class Janta extends Refeicao implements IPrinter {
 
     private TipoJanta tipoJanta;
@@ -12,8 +15,8 @@ public class Janta extends Refeicao implements IPrinter {
     }
 
     @Override
-    public float calcularVenda() {
-        return 0;
+    public BigDecimal calcularVenda() {
+        return getValor().multiply(BigDecimal.valueOf(1.5), MathContext.DECIMAL64);
     }
 
     @Override

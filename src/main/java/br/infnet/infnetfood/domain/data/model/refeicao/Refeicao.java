@@ -11,7 +11,7 @@ public abstract class Refeicao implements IPrinter {
     private String nome;
     private BigDecimal valor;
 
-    public abstract float calcularVenda();
+    public abstract BigDecimal calcularVenda();
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
@@ -25,9 +25,13 @@ public abstract class Refeicao implements IPrinter {
         this.valor = valor;
     }
 
+    public BigDecimal getValor() {
+        return valor;
+    }
+
     @Override
     public String toString() {
-        return "Uuid: " + uuid + "; Name: " + nome + "; Value: " + valor;
+        return "Uuid: " + uuid + "; Name: " + nome + "; Value: " + valor + "; Valor Venda:" + calcularVenda();
     }
 
     @Override
