@@ -23,4 +23,16 @@ public class Gerente implements IPrinter {
     public void impressao() {
         System.out.println(this);
     }
+
+    public Integer getMatricula() {
+        return matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
 }

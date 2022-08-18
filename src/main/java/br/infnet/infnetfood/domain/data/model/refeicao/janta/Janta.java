@@ -21,7 +21,7 @@ public class Janta extends Refeicao implements IPrinter {
 
     @Override
     public String toString() {
-        return super.toString() + "; " + "Dinner Type : " + tipoJanta.getType();
+        return super.toString() + "; " + "Dinner Type: " + tipoJanta.getType();
     }
 
     @Override

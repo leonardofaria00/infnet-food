@@ -1,11 +1,12 @@
 package br.infnet.infnetfood.domain.data.model.refeicao;
 
+import br.infnet.infnetfood.domain.data.model.utils.ModelUtils;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public abstract class Refeicao implements IPrinter {
+public abstract class Refeicao extends ModelUtils implements IPrinter {
 
     private String uuid;
     private String nome;
@@ -31,7 +32,7 @@ public abstract class Refeicao implements IPrinter {
 
     @Override
     public String toString() {
-        return "Uuid: " + uuid + "; Name: " + nome + "; Value: " + valor + "; Valor Venda:" + calcularVenda();
+        return "Uuid: " + uuid + "; Name: " + nome + "; Value: " + valor + "; Valor Venda: " + calcularVenda();
     }
 
     @Override
@@ -40,10 +41,5 @@ public abstract class Refeicao implements IPrinter {
         if (o == null || getClass() != o.getClass()) return false;
         Refeicao refeicao = (Refeicao) o;
         return Objects.equals(uuid, refeicao.uuid);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(uuid);
     }
 }
