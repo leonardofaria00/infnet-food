@@ -25,7 +25,7 @@ public class GerenteController {
         return map.values();
     }
 
-    public static void deleteManager(final Integer matricula) {
+    private static void removeManager(final Integer matricula) {
         map.remove(matricula);
         System.out.printf("Deleted registry: %s%n", matricula);
     }
@@ -38,7 +38,7 @@ public class GerenteController {
 
     @GetMapping("/{matricula}/delete")
     public String delete(@PathVariable final Integer matricula) {
-        deleteManager(matricula);
+        removeManager(matricula);
         return "redirect:/food/v1/manager/";
     }
 }

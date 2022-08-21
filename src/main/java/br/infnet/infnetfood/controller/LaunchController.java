@@ -18,16 +18,16 @@ public class LaunchController {
 
     public static Map<String, Almoco> map = new HashMap<>();
 
-    public static void addLaunch(final Almoco almoco, final String title) {
+    public static void addLaunch(final Almoco almoco, final String message) {
         map.put(almoco.getUuid(), almoco);
-        AppImpressao.relatorio(title, almoco);
+        AppImpressao.relatorio(message, almoco);
     }
 
     public static Collection<Almoco> getList() {
         return map.values();
     }
 
-    public static void deleteRestaurant(final String uuid) {
+    private static void removeLaunch(final String uuid) {
         map.remove(uuid);
         System.out.printf("Deleted uuid: %s%n", uuid);
     }
@@ -40,7 +40,7 @@ public class LaunchController {
 
     @GetMapping("/{uuid}/delete")
     public String delete(@PathVariable final String uuid) {
-        deleteRestaurant(uuid);
+        removeLaunch(uuid);
         return "redirect:/food/v1/launch/";
     }
 }

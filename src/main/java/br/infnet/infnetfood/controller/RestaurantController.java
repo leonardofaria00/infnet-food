@@ -26,7 +26,7 @@ public class RestaurantController {
         return map.values();
     }
 
-    public static void deleteRestaurant(final String uuid) {
+    private static void removeRestaurant(final String uuid) {
         map.remove(uuid);
         System.out.printf("Deleted uuid: %s%n", uuid);
     }
@@ -39,7 +39,7 @@ public class RestaurantController {
 
     @GetMapping("/{uuid}/delete")
     public String delete(@PathVariable final String uuid) {
-        deleteRestaurant(uuid);
+        removeRestaurant(uuid);
         return "redirect:/food/v1/restaurant/";
     }
 }
