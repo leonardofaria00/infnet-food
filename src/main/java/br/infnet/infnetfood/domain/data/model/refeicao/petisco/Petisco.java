@@ -14,6 +14,10 @@ public class Petisco extends Refeicao implements IPrinter {
         this.tipoPetisco = tipoPetisco;
     }
 
+    public TipoPetisco getTipoPetisco() {
+        return tipoPetisco;
+    }
+
     @Override
     public BigDecimal calcularVenda() {
         return getValor().multiply(BigDecimal.valueOf(3), MathContext.DECIMAL64);
