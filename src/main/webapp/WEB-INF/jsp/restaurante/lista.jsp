@@ -29,7 +29,7 @@
                         <a class="nav-link active" aria-current="page" href="/food/v1/launch/">Almoço</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/dine/">Janta</a>
+                        <a class="nav-link active" aria-current="page" href="/food/v1/dinner/">Janta</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/food/v1/snack/">Petisco</a>
