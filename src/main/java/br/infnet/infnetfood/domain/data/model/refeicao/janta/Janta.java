@@ -14,6 +14,10 @@ public class Janta extends Refeicao implements IPrinter {
         this.tipoJanta = tipoJanta;
     }
 
+    public TipoJanta getTipoJanta() {
+        return tipoJanta;
+    }
+
     @Override
     public BigDecimal calcularVenda() {
         return getValor().multiply(BigDecimal.valueOf(1.5), MathContext.DECIMAL64);
