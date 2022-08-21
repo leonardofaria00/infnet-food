@@ -25,7 +25,7 @@
                         <a class="nav-link active" aria-current="page" href="/food/v1/restaurant/">Restaurante</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/lunch/">Almoço</a>
+                        <a class="nav-link active" aria-current="page" href="/food/v1/launch/">Almoço</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/food/v1/dine/">Janta</a>

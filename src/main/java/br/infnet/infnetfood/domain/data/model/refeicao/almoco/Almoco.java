@@ -14,6 +14,10 @@ public class Almoco extends Refeicao implements IPrinter {
         this.ingrediente = ingrediente;
     }
 
+    public String getIngrediente() {
+        return ingrediente;
+    }
+
     @Override
     public BigDecimal calcularVenda() {
         return getValor().multiply(BigDecimal.valueOf(2), MathContext.DECIMAL64);

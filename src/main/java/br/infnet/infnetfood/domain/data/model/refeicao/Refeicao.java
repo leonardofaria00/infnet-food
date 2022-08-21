@@ -18,8 +18,16 @@ public abstract class Refeicao extends ModelUtils implements IPrinter {
         this.uuid = uuid;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void setValor(BigDecimal valor) {

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,23 +42,25 @@
     <h2>Infnet Food</h2>
     <p>Delivery</p>
 
-    <h3>Classe: Gerente</h3>
+    <h3>Classe: Almoço</h3>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">Matrícula</th>
+            <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Senha</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Ingredientes</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="g" items="${listagem}">
+        <c:forEach var="refeicao" items="${listagem}">
             <tr>
-                <td>${g.matricula}</td>
-                <td>${g.nome}</td>
-                <td>${g.senha}</td>
-                <td><a href="/food/v1/manager/${g.matricula}/delete">Excluir</a></td>
+                <th scope="row">${refeicao.uuid}</th>
+                <td>${refeicao.nome}</td>
+                <td>${refeicao.valor}</td>
+                <td>${refeicao.ingrediente}</td>
+                <td><a href="/food/v1/launch/${refeicao.uuid}/delete">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>
