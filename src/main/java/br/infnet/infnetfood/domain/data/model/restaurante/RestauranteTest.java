@@ -1,5 +1,6 @@
 package br.infnet.infnetfood.domain.data.model.restaurante;
 
+import br.infnet.infnetfood.controller.RestaurantController;
 import br.infnet.infnetfood.domain.data.model.gerente.Gerente;
 import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.model.refeicao.almoco.Almoco;
@@ -50,11 +51,12 @@ class RestauranteTest implements ApplicationRunner {
 
         Gerente g1 = new Gerente(2022123, "Gerente 1", "@#$%%");
         final Restaurante r1 = new Restaurante(g1);
+        r1.setUuid(UUID.randomUUID().toString());
         r1.setAtivo(true);
         r1.setAberto(true);
         r1.setTaxaFrete(BigDecimal.valueOf(5));
         r1.setRefeicoes(refeicaos1);
-        r1.impressao();
+        RestaurantController.addRestaurant(r1);
 
         //------------------------
 
@@ -84,11 +86,12 @@ class RestauranteTest implements ApplicationRunner {
 
         Gerente g2 = new Gerente(2022456, "Gerente 2", "!@#$%¨&*");
         final Restaurante r2 = new Restaurante(g2);
+        r2.setUuid(UUID.randomUUID().toString());
         r2.setAtivo(false);
         r2.setAberto(true);
         r2.setTaxaFrete(BigDecimal.valueOf(10));
         r2.setRefeicoes(refeicaos2);
-        r2.impressao();
+        RestaurantController.addRestaurant(r2);
 
         //------------------------
 
@@ -118,10 +121,11 @@ class RestauranteTest implements ApplicationRunner {
 
         Gerente g3 = new Gerente(2022789, "Gerente 3", "@#153777999");
         final Restaurante r3 = new Restaurante(g3);
+        r3.setUuid(UUID.randomUUID().toString());
         r3.setAtivo(true);
         r3.setAberto(false);
         r3.setTaxaFrete(BigDecimal.valueOf(20));
         r3.setRefeicoes(refeicaos3);
-        r3.impressao();
+        RestaurantController.addRestaurant(r3);
     }
 }

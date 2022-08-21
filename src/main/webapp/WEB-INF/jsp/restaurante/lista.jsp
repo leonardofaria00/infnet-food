@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,23 +42,27 @@
     <h2>Infnet Food</h2>
     <p>Delivery</p>
 
-    <h3>Classe: Gerente</h3>
+    <h3>Classe: Restaurante</h3>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">Matrícula</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Senha</th>
+            <th scope="col">ID</th>
+            <th scope="col">Ativo</th>
+            <th scope="col">Aberto</th>
+            <th scope="col">Taxa Frete</th>
+            <th scope="col">Gerente ID</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="g" items="${listagem}">
+        <c:forEach var="restaurante" items="${listagem}">
             <tr>
-                <td>${g.matricula}</td>
-                <td>${g.nome}</td>
-                <td>${g.senha}</td>
-                <td><a href="/food/v1/manager/${g.matricula}/delete">Excluir</a></td>
+                <th scope="row">${restaurante.uuid}</th>
+                <td>${restaurante.ativo}</td>
+                <td>${restaurante.aberto}</td>
+                <td>${restaurante.taxaFrete}</td>
+                <td>${restaurante.gerente.matricula}</td>
+                <td><a href="/food/v1/restaurant/${restaurante.uuid}/delete">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>
