@@ -25,7 +25,6 @@ class RestauranteTest implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         System.out.println("#Restaurante");
-        Set<Refeicao> refeicaos1 = new HashSet<>();
 
         final Almoco a1 = new Almoco();
         a1.setUuid(UUID.randomUUID().toString());
@@ -45,6 +44,7 @@ class RestauranteTest implements ApplicationRunner {
         p1.setValor(BigDecimal.valueOf(75.00));
         p1.setTipoPetisco(TipoPetisco.PEIXE);
 
+        Set<Refeicao> refeicaos1 = new HashSet<>();
         refeicaos1.add(a1);
         refeicaos1.add(j1);
         refeicaos1.add(p1);
@@ -59,8 +59,6 @@ class RestauranteTest implements ApplicationRunner {
         RestaurantController.addRestaurant(r1);
 
         //------------------------
-
-        Set<Refeicao> refeicaos2 = new HashSet<>();
 
         final Almoco a2 = new Almoco();
         a2.setUuid(UUID.randomUUID().toString());
@@ -80,6 +78,7 @@ class RestauranteTest implements ApplicationRunner {
         p2.setTipoPetisco(TipoPetisco.CARNE);
         p2.setValor(BigDecimal.valueOf(120.00));
 
+        Set<Refeicao> refeicaos2 = new HashSet<>();
         refeicaos2.add(a2);
         refeicaos2.add(j2);
         refeicaos2.add(p2);
@@ -88,14 +87,12 @@ class RestauranteTest implements ApplicationRunner {
         final Restaurante r2 = new Restaurante(g2);
         r2.setUuid(UUID.randomUUID().toString());
         r2.setAtivo(false);
-        r2.setAberto(true);
+        r2.setAberto(false);
         r2.setTaxaFrete(BigDecimal.valueOf(10));
         r2.setRefeicoes(refeicaos2);
         RestaurantController.addRestaurant(r2);
 
         //------------------------
-
-        Set<Refeicao> refeicaos3 = new HashSet<>();
 
         final Almoco a3 = new Almoco();
         a3.setUuid(UUID.randomUUID().toString());
@@ -115,6 +112,7 @@ class RestauranteTest implements ApplicationRunner {
         p3.setTipoPetisco(TipoPetisco.CAMARAO);
         p3.setValor(BigDecimal.valueOf(110.00));
 
+        Set<Refeicao> refeicaos3 = new HashSet<>();
         refeicaos3.add(a3);
         refeicaos3.add(j3);
         refeicaos3.add(p3);
