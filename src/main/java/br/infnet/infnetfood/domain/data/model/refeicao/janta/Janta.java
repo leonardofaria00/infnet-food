@@ -2,6 +2,7 @@ package br.infnet.infnetfood.domain.data.model.refeicao.janta;
 
 import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
+import br.infnet.infnetfood.domain.exception.JantaException;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -20,6 +21,9 @@ public class Janta extends Refeicao implements IPrinter {
 
     @Override
     public BigDecimal calcularVenda() {
+        if (getValor() == null) {
+            throw new JantaException("Valor da janta deve ser preenchido");
+        }
         return getValor().multiply(BigDecimal.valueOf(1.5), MathContext.DECIMAL64);
     }
 

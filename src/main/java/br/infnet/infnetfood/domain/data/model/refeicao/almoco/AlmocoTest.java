@@ -23,6 +23,7 @@ class AlmocoTest implements ApplicationRunner {
         a1.setIngrediente("Beringela, tomate fresco, molho de tomate");
         a1.setValor(BigDecimal.valueOf(85.00));
         LaunchController.addLaunch(a1, "Inclusão de almoço Lasanha");
+        a1.calcularVenda();
 
         final Almoco a2 = new Almoco();
         a2.setUuid(UUID.randomUUID().toString());
@@ -30,6 +31,7 @@ class AlmocoTest implements ApplicationRunner {
         a2.setIngrediente("Banana, arroz branco, pirão e farofa");
         a2.setValor(BigDecimal.valueOf(145.00));
         LaunchController.addLaunch(a2, "Inclusão de almoço Moqueca");
+        a2.calcularVenda();
 
         final Almoco a3 = new Almoco();
         a3.setUuid(UUID.randomUUID().toString());
@@ -37,5 +39,6 @@ class AlmocoTest implements ApplicationRunner {
         a3.setIngrediente("Beringela, tomate fresco, cebola roxa e abobrinha");
         a3.setValor(BigDecimal.valueOf(47.00));
         LaunchController.addLaunch(a3, "Inclusão de almoço Ratatouille");
+        a3.calcularVenda();
     }
 }
