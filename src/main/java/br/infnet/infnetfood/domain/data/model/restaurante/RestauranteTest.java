@@ -13,6 +13,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -125,5 +128,37 @@ class RestauranteTest implements ApplicationRunner {
         r3.setTaxaFrete(BigDecimal.valueOf(20));
         r3.setRefeicoes(refeicaos3);
         RestaurantController.addRestaurant(r3);
+
+        populateRestaurantWithReadFile(refeicaos1);
+    }
+
+    private void populateRestaurantWithReadFile(final Set<Refeicao> refeicaos) {
+        String diretorio = "src/main/resources/";
+        String arquivo = "restaurante.txt";
+        System.out.println("START READ FILE");
+        try {
+            FileReader fileReader = new FileReader(diretorio + arquivo);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String row = bufferedReader.readLine();
+            while (row != null) {
+                String[] campos = row.split(";");
+                Gerente g3 = new Gerente(Integer.valueOf(campos[4]), campos[5], campos[6]);
+                final Restaurante restaurant = new Restaurante(g3);
+                restaurant.setUuid(campos[0]);
+                restaurant.setAtivo(Boolean.parseBoolean(campos[1]));
+                restaurant.setAberto(Boolean.parseBoolean(campos[2]));
+                restaurant.setTaxaFrete(new BigDecimal(campos[3]));
+                restaurant.setRefeicoes(refeicaos);
+                RestaurantController.addRestaurant(restaurant);
+                row = bufferedReader.readLine();
+            }
+            fileReader.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            System.out.println("FINISHED READ FILE!");
+        }
     }
 }

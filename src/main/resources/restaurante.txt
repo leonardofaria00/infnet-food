@@ -1,0 +1,3 @@
+c131b01f-237c-4e13-9fdb-30b53568c1d7;true;true;5;2022123;Gerente 1;@#$%%
+e9efad96-3896-44ab-a316-763a736553b5;false;false;10;2022456;Gerente 2;!@#$%¨&*
+b029b39c-f9f9-49de-882b-ca1fe64e1107;true;true;20;2022789;Gerente 3;@#153777999
