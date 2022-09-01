@@ -16,22 +16,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/manager/">Gerente</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/manager/">Gerente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/restaurant/">Restaurante</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/restaurant/">Restaurante</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/launch/">Almoço</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/launch/">Almoço</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/dinner/">Janta</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/dinner/">Janta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/food/v1/snack/">Petisco</a>
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/snack/">Petisco</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/food/v1/user/">Usuário</a>
                     </li>
                 </ul>
             </div>
