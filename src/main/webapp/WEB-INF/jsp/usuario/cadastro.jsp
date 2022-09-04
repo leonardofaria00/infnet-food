@@ -74,32 +74,31 @@
         </div>
     </nav>
     <br>
-    <h2>Infnet Food</h2>
-    <p>Delivery</p>
+    <h2>Cadastramento de usuário</h2>
+    <p>Dashboard</p>
 
-    <h3>Classe: Usuário</h3>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Email</th>
-            <th scope="col">Senha</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="item" items="${listagem}">
-            <tr>
-                <th scope="row">${item.uuid}</th>
-                <td>${item.nome}</td>
-                <td>${item.email}</td>
-                <td>${item.senha}</td>
-                <td><a href="/food/v1/user/${item.uuid}/delete">Excluir</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <form action="${pageContext.request.contextPath}/food/v1/user" method="post">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" autofocus>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="senha">
+        </div>
+        <div class="form-check mb-3">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

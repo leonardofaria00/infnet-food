@@ -48,6 +48,6 @@ public class Usuario implements IPrinter {
 
     @Override
     public String toString() {
-        return "Uuid: " + uuid + "; Nome: " + nome + "; Email: " + email;
+        return "Uuid: " + uuid + "; Nome: " + nome + "; Email: " + email + "; Senha:" + senha;
     }
 }
