@@ -1,45 +1,36 @@
 package br.infnet.infnetfood.controller;
 
 import br.infnet.infnetfood.domain.data.model.restaurante.Restaurante;
+import br.infnet.infnetfood.domain.service.restaurant.RestaurantService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 @RequestMapping("/food/v1/restaurant")
 public class RestaurantController {
 
-    public static Map<String, Restaurante> map = new HashMap<>();
+    private final RestaurantService restaurantService;
 
-    public static void addRestaurant(final Restaurante restaurante) {
-        map.put(restaurante.getUuid(), restaurante);
-        restaurante.impressao();
+    public RestaurantController(final RestaurantService restaurantService) {
+        this.restaurantService = restaurantService;
     }
 
-    public static Collection<Restaurante> getList() {
-        return map.values();
-    }
-
-    private static void removeRestaurant(final String uuid) {
-        map.remove(uuid);
-        System.out.printf("Deleted uuid: %s%n", uuid);
+    public void addRestaurant(final Restaurante restaurante) {
+        restaurantService.addRestaurant(restaurante);
     }
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("listagem", getList());
+        model.addAttribute("listagem", restaurantService.getRestaurant());
         return "restaurante/lista";
     }
 
     @GetMapping("/{uuid}/delete")
     public String delete(@PathVariable final String uuid) {
-        removeRestaurant(uuid);
+        restaurantService.removeRestaurant(uuid);
         return "redirect:/food/v1/restaurant/";
     }
 }

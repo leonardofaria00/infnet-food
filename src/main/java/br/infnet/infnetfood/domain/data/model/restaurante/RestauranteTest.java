@@ -8,6 +8,8 @@ import br.infnet.infnetfood.domain.data.model.refeicao.janta.Janta;
 import br.infnet.infnetfood.domain.data.model.refeicao.janta.TipoJanta;
 import br.infnet.infnetfood.domain.data.model.refeicao.petisco.Petisco;
 import br.infnet.infnetfood.domain.data.model.refeicao.petisco.TipoPetisco;
+import br.infnet.infnetfood.domain.service.restaurant.RestaurantService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -25,6 +27,8 @@ import java.util.UUID;
 @Component
 class RestauranteTest implements ApplicationRunner {
 
+    @Autowired
+    private RestaurantService service;
     @Override
     public void run(ApplicationArguments args) {
         System.out.println("#Restaurante");
@@ -59,7 +63,7 @@ class RestauranteTest implements ApplicationRunner {
         r1.setAberto(true);
         r1.setTaxaFrete(BigDecimal.valueOf(5));
         r1.setRefeicoes(refeicaos1);
-        RestaurantController.addRestaurant(r1);
+        new RestaurantController(service).addRestaurant(r1);
 
         //------------------------
 
@@ -93,7 +97,7 @@ class RestauranteTest implements ApplicationRunner {
         r2.setAberto(false);
         r2.setTaxaFrete(BigDecimal.valueOf(10));
         r2.setRefeicoes(refeicaos2);
-        RestaurantController.addRestaurant(r2);
+        new RestaurantController(service).addRestaurant(r2);
 
         //------------------------
 
@@ -127,7 +131,7 @@ class RestauranteTest implements ApplicationRunner {
         r3.setAberto(false);
         r3.setTaxaFrete(BigDecimal.valueOf(20));
         r3.setRefeicoes(refeicaos3);
-        RestaurantController.addRestaurant(r3);
+        new RestaurantController(service).addRestaurant(r3);
 
         populateRestaurantWithReadFile(refeicaos1);
     }
@@ -150,7 +154,7 @@ class RestauranteTest implements ApplicationRunner {
                 restaurant.setAberto(Boolean.parseBoolean(campos[2]));
                 restaurant.setTaxaFrete(new BigDecimal(campos[3]));
                 restaurant.setRefeicoes(refeicaos);
-                RestaurantController.addRestaurant(restaurant);
+                new RestaurantController(service).addRestaurant(restaurant);
                 row = bufferedReader.readLine();
             }
             fileReader.close();
