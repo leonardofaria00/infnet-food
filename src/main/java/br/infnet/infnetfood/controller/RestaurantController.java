@@ -18,19 +18,19 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    public void addRestaurant(final Restaurante restaurante) {
-        restaurantService.addRestaurant(restaurante);
+    public void create(final Restaurante restaurante) {
+        restaurantService.create(restaurante);
     }
 
     @GetMapping("/")
-    public String index(final Model model) {
-        model.addAttribute("listagem", restaurantService.getRestaurant());
+    public String getAll(final Model model) {
+        model.addAttribute("listagem", restaurantService.getAll());
         return "restaurante/lista";
     }
 
     @GetMapping("/{uuid}/delete")
-    public String delete(@PathVariable final String uuid) {
-        restaurantService.removeRestaurant(uuid);
+    public String remove(@PathVariable final String uuid) {
+        restaurantService.remove(uuid);
         return "redirect:/food/v1/restaurant/";
     }
 }

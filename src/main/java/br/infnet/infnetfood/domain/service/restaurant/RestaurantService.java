@@ -15,17 +15,17 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public void removeRestaurant(final String uuid) {
+    public void remove(final String uuid) {
         restaurantRepository.remove(uuid);
     }
 
-    public void addRestaurant(final Restaurante restaurante) {
-        restaurantRepository.addRestaurant(restaurante);
+    public void create(final Restaurante restaurante) {
+        restaurantRepository.create(restaurante);
         restaurante.impressao();
     }
 
-    public Collection<Restaurante> getRestaurant() {
+    public Collection<Restaurante> getAll() {
         System.out.println("Find Restaurants...");
-        return restaurantRepository.getRestaurant();
+        return restaurantRepository.getAll();
     }
 }

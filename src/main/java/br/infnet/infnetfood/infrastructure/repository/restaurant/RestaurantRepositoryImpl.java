@@ -20,12 +20,12 @@ public class RestaurantRepositoryImpl implements RestaurantRepository {
     }
 
     @Override
-    public void addRestaurant(final Restaurante restaurante) {
+    public void create(final Restaurante restaurante) {
         map.put(restaurante.getUuid(), restaurante);
     }
 
     @Override
-    public Collection<Restaurante> getRestaurant() {
+    public Collection<Restaurante> getAll() {
         return map.values();
     }
 }
