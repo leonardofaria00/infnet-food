@@ -1,17 +1,19 @@
 package br.infnet.infnetfood.controller.authentication;
 
-import br.infnet.infnetfood.controller.UsuarioController;
 import br.infnet.infnetfood.domain.data.model.usuario.Usuario;
+import br.infnet.infnetfood.domain.service.usuario.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+@SessionAttributes("user")
 @Controller
 @RequestMapping(value = "/food/v1/authentication")
 public class AuthenticationController {
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping
     public String login() {
@@ -21,19 +23,20 @@ public class AuthenticationController {
     @PostMapping
     public String authentication(final Model model, @RequestParam final String email, @RequestParam final String senha) {
         validateAuthentication(email, senha);
-        for (Usuario usuario : UsuarioController.getList()) {
-            if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
-                model.addAttribute("user", usuario.getNome());
-                return "home";
-            }
+        final Usuario usuario = usuarioService.getByEmail(email);
+        if (usuario == null) {
+            model.addAttribute("userNotFound", email);
+            return "authentication/login";
         }
+
+        model.addAttribute("user", usuario);
         return "home";
     }
 
     @GetMapping(value = "/logout")
     public String logout(final Model model) {
         model.addAttribute("user", "");
-        return "home";
+        return "authentication/login";
     }
 
     private void validateAuthentication(final String email, final String senha) {
