@@ -1,6 +1,8 @@
 package br.infnet.infnetfood.domain.data.model.refeicao.janta;
 
 import br.infnet.infnetfood.controller.DinnerController;
+import br.infnet.infnetfood.domain.service.dinner.DinnerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -13,6 +15,9 @@ import java.util.UUID;
 @Component
 class JantaTest implements ApplicationRunner {
 
+    @Autowired
+    private DinnerService service;
+
     @Override
     public void run(ApplicationArguments args) {
         System.out.println("#Janta");
@@ -21,20 +26,20 @@ class JantaTest implements ApplicationRunner {
         j1.setNome("Salada Caesar de Camarão");
         j1.setValor(BigDecimal.valueOf(35.00));
         j1.setTipoJanta(TipoJanta.NEGOCIOS);
-        DinnerController.addDinner(j1, "Inclusão de janta Salada");
+        new DinnerController(service).create(j1, "Inclusão de janta Salada");
 
         final Janta j2 = new Janta();
         j2.setUuid(UUID.randomUUID().toString());
         j2.setNome("Bobó de Camarão (2 pessoas)");
         j2.setValor(BigDecimal.valueOf(246, 2));
         j2.setTipoJanta(TipoJanta.ROMANTICO);
-        DinnerController.addDinner(j2, "Inclusão de janta Bobó de Camarão");
+        new DinnerController(service).create(j2, "Inclusão de janta Bobó de Camarão");
 
         final Janta j3 = new Janta();
         j3.setUuid(UUID.randomUUID().toString());
         j3.setNome("Brownie de Chocolate");
         j3.setValor(BigDecimal.valueOf(35.00));
         j3.setTipoJanta(TipoJanta.LAZER);
-        DinnerController.addDinner(j3, "Inclusão de janta Brownie");
+        new DinnerController(service).create(j3, "Inclusão de janta Brownie");
     }
 }

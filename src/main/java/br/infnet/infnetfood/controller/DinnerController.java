@@ -1,46 +1,36 @@
 package br.infnet.infnetfood.controller;
 
 import br.infnet.infnetfood.domain.data.model.refeicao.janta.Janta;
-import br.infnet.infnetfood.domain.data.printer.AppImpressao;
+import br.infnet.infnetfood.domain.service.dinner.DinnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 @RequestMapping("/food/v1/dinner")
 public class DinnerController {
 
-    public static Map<String, Janta> map = new HashMap<>();
+    private final DinnerService dinnerService;
 
-    public static void addDinner(final Janta janta, final String message) {
-        map.put(janta.getUuid(), janta);
-        AppImpressao.relatorio(message, janta);
+    public DinnerController(final DinnerService dinnerService) {
+        this.dinnerService = dinnerService;
     }
 
-    public static Collection<Janta> getList() {
-        return map.values();
+    public void create(final Janta janta, final String message) {
+        dinnerService.create(janta, message);
     }
 
-    private static void removeDinner(final String uuid) {
-        map.remove(uuid);
-        System.out.printf("Deleted uuid: %s%n", uuid);
-    }
-
-    @GetMapping("/")
-    public String index(final Model model) {
-        model.addAttribute("listagem", getList());
+    @GetMapping
+    public String getAll(final Model model) {
+        model.addAttribute("listagem", dinnerService.getAll());
         return "janta/lista";
     }
 
     @GetMapping("/{uuid}/delete")
-    public String delete(@PathVariable final String uuid) {
-        removeDinner(uuid);
+    public String remove(@PathVariable final String uuid) {
+        dinnerService.remove(uuid);
         return "redirect:/food/v1/dinner/";
     }
 }
