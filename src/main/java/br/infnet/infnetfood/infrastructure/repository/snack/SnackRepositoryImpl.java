@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class SnackRepositoryImpl implements SnackRepository {
@@ -14,6 +15,7 @@ public class SnackRepositoryImpl implements SnackRepository {
 
     @Override
     public void create(final Petisco petisco) {
+        petisco.setUuid(UUID.randomUUID().toString());
         map.put(petisco.getUuid(), petisco);
     }
 

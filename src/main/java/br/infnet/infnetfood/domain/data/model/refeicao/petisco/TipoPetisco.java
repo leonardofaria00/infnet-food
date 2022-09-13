@@ -2,7 +2,10 @@ package br.infnet.infnetfood.domain.data.model.refeicao.petisco;
 
 public enum TipoPetisco {
 
-    CAMARAO("CAMARÃO"), CARNE("CARNE"), PEIXE("PEIXE");
+    CAMARAO("CAMARÃO"),
+    CARNE("CARNE"),
+    PEIXE("PEIXE"),
+    OVO("OVO");
 
     private final String type;
 
