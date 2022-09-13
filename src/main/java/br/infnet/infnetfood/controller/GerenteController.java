@@ -1,44 +1,38 @@
 package br.infnet.infnetfood.controller;
 
 import br.infnet.infnetfood.domain.data.model.gerente.Gerente;
+import br.infnet.infnetfood.domain.service.manager.GerenteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/food/v1/manager")
 public class GerenteController {
-    public static Map<Integer, Gerente> map = new HashMap<>();
 
-    public static void addManager(final Gerente gerente) {
-        map.put(gerente.getMatricula(), gerente);
-        gerente.impressao();
+    private final GerenteService service;
+
+    public GerenteController(final GerenteService service) {
+        this.service = service;
     }
 
-    public static Collection<Gerente> getList() {
-        return map.values();
-    }
-
-    private static void removeManager(final Integer matricula) {
-        map.remove(matricula);
-        System.out.printf("Deleted registry: %s%n", matricula);
+    @PostMapping
+    public void create(final Gerente gerente) {
+        service.create(gerente);
     }
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("listagem", getList());
+        model.addAttribute("listagem", service.getList());
         return "gerente/lista";
     }
 
     @GetMapping("/{matricula}/delete")
     public String delete(@PathVariable final Integer matricula) {
-        removeManager(matricula);
+        service.remove(matricula);
         return "redirect:/food/v1/manager/";
     }
 }
