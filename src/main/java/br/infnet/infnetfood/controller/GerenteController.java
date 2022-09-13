@@ -19,9 +19,15 @@ public class GerenteController {
         this.service = service;
     }
 
+    @GetMapping(value = "/signup")
+    public String signUp() {
+        return "gerente/cadastro";
+    }
+
     @PostMapping
-    public void create(final Gerente gerente) {
+    public String create(final Gerente gerente) {
         service.create(gerente);
+        return "redirect:manager/";
     }
 
     @GetMapping("/")

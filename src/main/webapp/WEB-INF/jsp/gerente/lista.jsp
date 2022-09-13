@@ -17,6 +17,7 @@
     <p>Delivery</p>
 
     <h3>Classe: Gerente</h3>
+    <a href="${pageContext.request.contextPath}/food/v1/manager/signup" type="submit" class="btn btn-success">Novo</a>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
