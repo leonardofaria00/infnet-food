@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Component
 public class DinnerRepositoryImpl implements DinnerRepository {
@@ -25,6 +26,7 @@ public class DinnerRepositoryImpl implements DinnerRepository {
 
     @Override
     public void create(final Janta janta) {
+        janta.setUuid(UUID.randomUUID().toString());
         map.put(janta.getUuid(), janta);
     }
 }

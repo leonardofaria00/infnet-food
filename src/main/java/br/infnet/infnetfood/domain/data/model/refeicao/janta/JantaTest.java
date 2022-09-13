@@ -8,6 +8,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -41,5 +44,35 @@ class JantaTest implements ApplicationRunner {
         j3.setValor(BigDecimal.valueOf(35.00));
         j3.setTipoJanta(TipoJanta.LAZER);
         new DinnerController(service).create(j3, "Inclusão de janta Brownie");
+
+        populateFoodWithReadFile();
+    }
+
+    private void populateFoodWithReadFile() {
+        String diretorio = "src/main/resources/";
+        String arquivo = "janta.txt";
+
+        try {
+            System.out.println("START READ FILE");
+            FileReader fileReader = new FileReader(diretorio + arquivo);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String row = bufferedReader.readLine();
+            while (row != null) {
+                String[] campos = row.split(";");
+                Janta janta = new Janta();
+                janta.setNome(campos[0]);
+                janta.setTipoJanta(TipoJanta.valueOf(campos[1]));
+                janta.setValor(BigDecimal.valueOf(Long.parseLong(campos[2])));
+                new DinnerController(service).create(janta, "Inclusão via arquivo");
+                row = bufferedReader.readLine();
+            }
+            fileReader.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            System.out.println("FINISHED READ FILE!");
+        }
     }
 }
