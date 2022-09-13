@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,8 +19,15 @@ public class SnackController {
         this.snackService = snackService;
     }
 
-    public void create(final Petisco petisco, final String message) {
+    @GetMapping(value = "/register")
+    public String signUp() {
+        return "petisco/cadastro";
+    }
+
+    @PostMapping
+    public String create(final Petisco petisco, final String message) {
         snackService.create(petisco, message);
+        return "redirect:snack/";
     }
 
     @GetMapping
