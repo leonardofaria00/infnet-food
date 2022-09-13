@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,8 +19,15 @@ public class DinnerController {
         this.dinnerService = dinnerService;
     }
 
-    public void create(final Janta janta, final String message) {
+    @GetMapping(value = "/register")
+    public String signUp() {
+        return "janta/cadastro";
+    }
+
+    @PostMapping
+    public String create(final Janta janta, final String message) {
         dinnerService.create(janta, message);
+        return "redirect:dinner/";
     }
 
     @GetMapping

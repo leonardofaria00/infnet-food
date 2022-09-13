@@ -13,33 +13,25 @@
 <body>
 <div class="container mt-5">
     <c:import url="../menu.jsp"></c:import>
-    <h2>Infnet Food</h2>
-    <p>Delivery</p>
+    <h2>Cadastramento de Janta</h2>
 
-    <h3>Classe: Janta</h3>
-    <a href="${pageContext.request.contextPath}/food/v1/dinner/register" type="submit" class="btn btn-success">Novo</a>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Tipo de Janta</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="refeicao" items="${listagem}">
-            <tr>
-                <th scope="row">${refeicao.uuid}</th>
-                <td>${refeicao.nome}</td>
-                <td>${refeicao.valor}</td>
-                <td>${refeicao.tipoJanta}</td>
-                <td><a href="/food/v1/dinner/${refeicao.uuid}/delete">Excluir</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <form action="${pageContext.request.contextPath}/food/v1/dinner" method="post">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="nome" autofocus>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="tipoJanta" class="form-label">Tipo de Jantar:</label>
+            <input type="text" class="form-control" id="tipoJanta" placeholder="Enter dinner type" name="tipoJanta">
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label">Valor da Janta:</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount" name="valor">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
