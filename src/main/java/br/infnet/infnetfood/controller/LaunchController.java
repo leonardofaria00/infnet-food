@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,9 +19,15 @@ public class LaunchController {
         this.launchService = launchService;
     }
 
+    @GetMapping(value = "/register")
+    public String signUp() {
+        return "almoco/cadastro";
+    }
 
-    public void create(final Almoco almoco, final String message) {
+    @PostMapping
+    public String create(final Almoco almoco, final String message) {
         launchService.create(almoco, message);
+        return "redirect:launch/";
     }
 
     @GetMapping

@@ -13,33 +13,25 @@
 <body>
 <div class="container mt-5">
     <c:import url="../menu.jsp"></c:import>
-    <h2>Infnet Food</h2>
-    <p>Delivery</p>
+    <h2>Cadastramento de Almoço</h2>
 
-    <h3>Classe: Almoço</h3>
-    <a href="${pageContext.request.contextPath}/food/v1/launch/register" type="submit" class="btn btn-success">Novo</a>
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Ingredientes</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="refeicao" items="${listagem}">
-            <tr>
-                <th scope="row">${refeicao.uuid}</th>
-                <td>${refeicao.nome}</td>
-                <td>${refeicao.valor}</td>
-                <td>${refeicao.ingrediente}</td>
-                <td><a href="/food/v1/launch/${refeicao.uuid}/delete">Excluir</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <form action="${pageContext.request.contextPath}/food/v1/launch" method="post">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" name="nome" autofocus>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="ingrediente" class="form-label">Ingrediente:</label>
+            <input type="text" class="form-control" id="ingrediente" placeholder="Enter ingredients" name="ingrediente">
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label">Valor do Almoço:</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount" name="valor">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
