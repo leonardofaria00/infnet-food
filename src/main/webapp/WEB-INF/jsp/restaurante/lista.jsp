@@ -17,6 +17,7 @@
     <p>Delivery</p>
 
     <h3>Classe: Restaurante</h3>
+    <a href="${pageContext.request.contextPath}/food/v1/restaurant/register" type="submit" class="btn btn-success">Novo</a>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
