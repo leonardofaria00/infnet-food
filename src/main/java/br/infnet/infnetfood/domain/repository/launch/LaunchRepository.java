@@ -10,5 +10,5 @@ public interface LaunchRepository {
 
     Collection<Almoco> getAll();
 
-    void remove(String uuid);
+    void remove(Integer uuid);
 }

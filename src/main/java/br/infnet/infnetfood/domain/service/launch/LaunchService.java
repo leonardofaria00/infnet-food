@@ -25,8 +25,8 @@ public class LaunchService {
         return launchRepository.getAll();
     }
 
-    public void remove(final String uuid) {
-        launchRepository.remove(uuid);
-        System.out.printf("Deleted uuid: %s%n", uuid);
+    public void remove(final Integer id) {
+        launchRepository.remove(id);
+        System.out.printf("Deleted id: %s%n", id);
     }
 }

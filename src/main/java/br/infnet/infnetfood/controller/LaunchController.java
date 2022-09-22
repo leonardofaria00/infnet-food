@@ -36,9 +36,9 @@ public class LaunchController {
         return "almoco/lista";
     }
 
-    @GetMapping("/{uuid}/delete")
-    public String remove(@PathVariable final String uuid) {
-        launchService.remove(uuid);
+    @GetMapping("/{id}/delete")
+    public String remove(@PathVariable final Integer id) {
+        launchService.remove(id);
         return "redirect:/food/v1/launch/";
     }
 }
