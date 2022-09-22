@@ -40,9 +40,9 @@ public class UsuarioController {
         return "redirect:/food/v1/authentication";
     }
 
-    @GetMapping("/{email}/delete")
-    public String remove(@PathVariable final String email) {
-        usuarioService.remove(email);
+    @GetMapping("/{id}/delete")
+    public String remove(@PathVariable final Integer id) {
+        usuarioService.remove(id);
         return "redirect:/food/v1/user/";
     }
 }

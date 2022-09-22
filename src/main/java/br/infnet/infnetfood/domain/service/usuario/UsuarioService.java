@@ -25,8 +25,8 @@ public class UsuarioService {
         return usuarioRepository.getAll();
     }
 
-    public void remove(final String email) {
-        usuarioRepository.remove(email);
+    public void remove(final Integer id) {
+        usuarioRepository.remove(id);
     }
 
     public Usuario getByEmail(final String email) {

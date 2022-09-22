@@ -10,7 +10,7 @@ public interface UsuarioRepository {
 
     Collection<Usuario> getAll();
 
-    void remove(String uuid);
+    void remove(Integer id);
 
     Usuario getByEmail(String email);
 }

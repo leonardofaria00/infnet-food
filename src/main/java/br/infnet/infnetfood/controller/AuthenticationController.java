@@ -1,4 +1,4 @@
-package br.infnet.infnetfood.controller.authentication;
+package br.infnet.infnetfood.controller;
 
 import br.infnet.infnetfood.domain.data.model.usuario.Usuario;
 import br.infnet.infnetfood.domain.service.usuario.UsuarioService;

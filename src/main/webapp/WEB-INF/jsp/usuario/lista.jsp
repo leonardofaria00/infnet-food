@@ -31,11 +31,11 @@
         <tbody>
         <c:forEach var="item" items="${listagem}">
             <tr>
-                <th scope="row">${item.uuid}</th>
+                <th scope="row">${item.id}</th>
                 <td>${item.nome}</td>
                 <td>${item.email}</td>
                 <td>${item.senha}</td>
-                <td><a href="/food/v1/user/${item.email}/delete">Excluir</a></td>
+                <td><a href="/food/v1/user/${item.id}/delete">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>
