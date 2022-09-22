@@ -16,6 +16,7 @@ import java.util.Set;
 
 public class Restaurante implements IPrinter {
 
+    private Integer id;
     private String uuid;
     private Boolean ativo;
     private Boolean aberto;
@@ -29,6 +30,15 @@ public class Restaurante implements IPrinter {
     public Restaurante(final Gerente gerente) {
         this.gerente = gerente;
         this.dataPedido = LocalDateTime.now();
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUuid() {

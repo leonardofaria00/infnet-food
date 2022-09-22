@@ -11,17 +11,19 @@ import java.util.Map;
 @Component
 public class RestaurantRepositoryImpl implements RestaurantRepository {
 
-    public static Map<String, Restaurante> map = new HashMap<>();
+    public static Map<Integer, Restaurante> map = new HashMap<>();
+    public static Integer ID = 0;
 
     @Override
-    public void remove(final String uuid) {
-        map.remove(uuid);
-        System.out.printf("Deleted uuid: %s%n", uuid);
+    public void remove(final Integer id) {
+        map.remove(id);
+        System.out.printf("Deleted registry: %s%n", id);
     }
 
     @Override
     public void create(final Restaurante restaurante) {
-        map.put(restaurante.getUuid(), restaurante);
+        restaurante.setId(++ID);
+        map.put(restaurante.getId(), restaurante);
     }
 
     @Override

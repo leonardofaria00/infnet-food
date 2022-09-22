@@ -15,8 +15,8 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public void remove(final String uuid) {
-        restaurantRepository.remove(uuid);
+    public void remove(final Integer id) {
+        restaurantRepository.remove(id);
     }
 
     public void create(final Restaurante restaurante) {
