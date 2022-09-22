@@ -21,8 +21,8 @@ public class DinnerService {
         return dinnerRepository.getAll();
     }
 
-    public void remove(final String uuid) {
-        dinnerRepository.remove(uuid);
+    public void remove(final Integer id) {
+        dinnerRepository.remove(id);
     }
 
     public void create(final Janta janta, final String message) {

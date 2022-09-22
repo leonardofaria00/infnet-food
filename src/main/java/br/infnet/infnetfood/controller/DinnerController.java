@@ -36,9 +36,9 @@ public class DinnerController {
         return "janta/lista";
     }
 
-    @GetMapping("/{uuid}/delete")
-    public String remove(@PathVariable final String uuid) {
-        dinnerService.remove(uuid);
+    @GetMapping("/{id}/delete")
+    public String remove(@PathVariable final Integer id) {
+        dinnerService.remove(id);
         return "redirect:/food/v1/dinner/";
     }
 }

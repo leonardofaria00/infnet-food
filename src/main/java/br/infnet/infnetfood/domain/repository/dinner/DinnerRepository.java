@@ -8,7 +8,7 @@ public interface DinnerRepository {
 
     Collection<Janta> getAll();
 
-    void remove(String uuid);
+    void remove(Integer uuid);
 
     void create(Janta janta);
 }
