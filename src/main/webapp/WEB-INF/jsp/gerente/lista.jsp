@@ -21,6 +21,7 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Matrícula</th>
             <th scope="col">Nome</th>
             <th scope="col">Senha</th>
@@ -30,10 +31,11 @@
         <tbody>
         <c:forEach var="g" items="${listagem}">
             <tr>
+                <td>${g.id}</td>
                 <td>${g.matricula}</td>
                 <td>${g.nome}</td>
                 <td>${g.senha}</td>
-                <td><a href="/food/v1/manager/${g.matricula}/delete">Excluir</a></td>
+                <td><a href="/food/v1/manager/${g.id}/delete">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

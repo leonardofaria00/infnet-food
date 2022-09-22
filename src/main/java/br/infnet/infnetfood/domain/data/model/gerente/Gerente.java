@@ -3,13 +3,18 @@ package br.infnet.infnetfood.domain.data.model.gerente;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 import br.infnet.infnetfood.domain.exception.GerenteException;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "T_gerente")
 public class Gerente implements IPrinter {
-
-    private final Integer matricula;
-    private final String nome;
-    private final String senha;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer matricula;
+    private String nome;
+    private String senha;
 
     public Gerente(final Integer matricula, final String nome, final String senha) {
 
@@ -30,6 +35,10 @@ public class Gerente implements IPrinter {
         this.senha = senha;
     }
 
+    public Gerente() {
+
+    }
+
     @Override
     public String toString() {
         return "Registry: " + matricula + "; Name: " + nome + "; Password: " + senha;
@@ -38,6 +47,14 @@ public class Gerente implements IPrinter {
     @Override
     public void impressao() {
         System.out.println(this);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getMatricula() {

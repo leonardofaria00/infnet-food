@@ -24,8 +24,8 @@ public class GerenteService {
         return repository.getList();
     }
 
-    public void remove(final Integer matricula) {
-        repository.remove(matricula);
-        System.out.printf("Deleted registry: %s%n", matricula);
+    public void remove(final Integer id) {
+        repository.remove(id);
+        System.out.printf("Deleted registry: %s%n", id);
     }
 }

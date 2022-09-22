@@ -36,9 +36,9 @@ public class GerenteController {
         return "gerente/lista";
     }
 
-    @GetMapping("/{matricula}/delete")
-    public String delete(@PathVariable final Integer matricula) {
-        service.remove(matricula);
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable final Integer id) {
+        service.remove(id);
         return "redirect:/food/v1/manager/";
     }
 }

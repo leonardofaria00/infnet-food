@@ -2,29 +2,33 @@ package br.infnet.infnetfood.infrastructure.repository.manager;
 
 import br.infnet.infnetfood.domain.data.model.gerente.Gerente;
 import br.infnet.infnetfood.domain.repository.manager.GerenteRepository;
+import br.infnet.infnetfood.infrastructure.persistence.GerenteMySQLRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class GerenteRepositoryImpl implements GerenteRepository {
 
-    public static Map<Integer, Gerente> map = new HashMap<>();
+    private final GerenteMySQLRepository repository;
+
+    public GerenteRepositoryImpl(final GerenteMySQLRepository repository) {
+        this.repository = repository;
+    }
+
 
     @Override
     public void create(final Gerente gerente) {
-        map.put(gerente.getMatricula(), gerente);
+        repository.save(gerente);
     }
 
     @Override
     public Collection<Gerente> getList() {
-        return map.values();
+        return (Collection<Gerente>) repository.findAll();
     }
 
     @Override
-    public void remove(final Integer matricula) {
-        map.remove(matricula);
+    public void remove(final Integer id) {
+        repository.deleteById(id);
     }
 }
