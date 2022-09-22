@@ -25,8 +25,8 @@ public class SnackService {
         return snackRepository.getAll();
     }
 
-    public void remove(final String uuid) {
-        snackRepository.remove(uuid);
-        System.out.printf("Deleted uuid: %s%n", uuid);
+    public void remove(final Integer id) {
+        snackRepository.remove(id);
+        System.out.printf("Deleted id: %s%n", id);
     }
 }

@@ -36,9 +36,9 @@ public class SnackController {
         return "petisco/lista";
     }
 
-    @GetMapping("/{uuid}/delete")
-    public String remove(@PathVariable final String uuid) {
-        snackService.remove(uuid);
+    @GetMapping("/{id}/delete")
+    public String remove(@PathVariable final Integer id) {
+        snackService.remove(id);
         return "redirect:/food/v1/snack/";
     }
 }

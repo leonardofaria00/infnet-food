@@ -10,5 +10,5 @@ public interface SnackRepository {
 
     Collection<Petisco> getAll();
 
-    void remove(String uuid);
+    void remove(Integer uuid);
 }
