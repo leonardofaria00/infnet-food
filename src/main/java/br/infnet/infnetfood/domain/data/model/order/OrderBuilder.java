@@ -4,7 +4,7 @@ import br.infnet.infnetfood.domain.data.model.gerente.Gerente;
 import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.model.usuario.Usuario;
 
-import java.util.Set;
+import java.util.List;
 
 public class OrderBuilder {
 
@@ -12,7 +12,7 @@ public class OrderBuilder {
 
     private Gerente gerente;
 
-    private Set<Refeicao> refeicaos;
+    private List<Refeicao> refeicaos;
 
     private Usuario usuario;
 
@@ -34,11 +34,11 @@ public class OrderBuilder {
         return this;
     }
 
-    public Set<Refeicao> getRefeicaos() {
+    public List<Refeicao> getRefeicaos() {
         return refeicaos;
     }
 
-    public OrderBuilder refeicaos(Set<Refeicao> refeicaos) {
+    public OrderBuilder refeicaos(List<Refeicao> refeicaos) {
         this.refeicaos = refeicaos;
         return this;
     }

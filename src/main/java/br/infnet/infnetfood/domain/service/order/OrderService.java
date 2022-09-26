@@ -4,6 +4,8 @@ import br.infnet.infnetfood.domain.data.model.order.Order;
 import br.infnet.infnetfood.domain.repository.order.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class OrderService {
 
@@ -13,7 +15,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public Order getAllOrders() {
+    public Collection<Order> getAllOrders() {
         return orderRepository.getAllOrders();
     }
 

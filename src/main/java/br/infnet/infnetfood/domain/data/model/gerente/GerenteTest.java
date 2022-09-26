@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-@Order(1)
+@Order
 @Component
 class GerenteTest implements ApplicationRunner {
 

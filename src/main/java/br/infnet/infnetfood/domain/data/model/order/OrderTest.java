@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -65,9 +65,10 @@ class OrderTest implements ApplicationRunner {
         }
     }
 
-    private Set<Refeicao> getRefeicoes(final String[] campos) {
-        HashSet<Refeicao> refeicoes = new HashSet<>();
+    private List<Refeicao> getRefeicoes(final String[] campos) {
+        List<Refeicao> refeicoes = new ArrayList<>();
         final Almoco refeicao = new Almoco();
+        refeicao.setId(1);
         refeicao.setUuid(UUID.randomUUID().toString());
         refeicao.setNome(campos[1]);
         refeicao.setIngrediente(campos[2]);
@@ -78,14 +79,23 @@ class OrderTest implements ApplicationRunner {
 
     private Usuario getUsuario(final String[] campos) {
         Usuario usuario = new Usuario();
+
+        usuario.setId(1);
         usuario.setUuid(UUID.randomUUID().toString());
         usuario.setNome(campos[7]);
         usuario.setEmail(campos[8]);
         usuario.setSenha(campos[9]);
+        usuario.setRefeicaos(getRefeicoes(campos));
+
+        List<Gerente> gerentes = new ArrayList<>();
+        gerentes.add(getGerente(campos));
+        usuario.setGerentes(gerentes);
         return usuario;
     }
 
     private Gerente getGerente(final String[] campos) {
-        return new Gerente(Integer.valueOf(campos[4]), campos[5], campos[6]);
+        Gerente gerente = new Gerente(Integer.valueOf(campos[4]), campos[5], campos[6]);
+        gerente.setId(1);
+        return gerente;
     }
 }

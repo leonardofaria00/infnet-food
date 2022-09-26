@@ -1,8 +1,12 @@
 package br.infnet.infnetfood.domain.data.model.usuario;
 
+import br.infnet.infnetfood.domain.data.model.gerente.Gerente;
+import br.infnet.infnetfood.domain.data.model.order.Order;
+import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "T_usuario")
@@ -15,6 +19,18 @@ public class Usuario implements IPrinter {
     private String nome;
     private String email;
     private String senha;
+
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Gerente> gerentes;
+
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Refeicao> refeicaos;
+
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Order> orders;
 
     public Integer getId() {
         return id;
@@ -54,6 +70,30 @@ public class Usuario implements IPrinter {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Gerente> getGerentes() {
+        return gerentes;
+    }
+
+    public void setGerentes(List<Gerente> gerentes) {
+        this.gerentes = gerentes;
+    }
+
+    public List<Refeicao> getRefeicaos() {
+        return refeicaos;
+    }
+
+    public void setRefeicaos(List<Refeicao> refeicaos) {
+        this.refeicaos = refeicaos;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

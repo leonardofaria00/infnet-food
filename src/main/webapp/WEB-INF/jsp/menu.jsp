@@ -13,6 +13,10 @@
                 <c:if test="${not empty user}">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
+                           href="${pageContext.request.contextPath}/food/v1/order/">Pedido</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
                            href="${pageContext.request.contextPath}/food/v1/user/">Usuário</a>
                     </li>
                     <li class="nav-item">

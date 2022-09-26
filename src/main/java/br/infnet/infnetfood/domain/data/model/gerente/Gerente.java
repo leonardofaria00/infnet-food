@@ -1,5 +1,6 @@
 package br.infnet.infnetfood.domain.data.model.gerente;
 
+import br.infnet.infnetfood.domain.data.model.usuario.Usuario;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 import br.infnet.infnetfood.domain.exception.GerenteException;
 
@@ -15,6 +16,10 @@ public class Gerente implements IPrinter {
     private Integer matricula;
     private String nome;
     private String senha;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Gerente() {
 
@@ -67,5 +72,25 @@ public class Gerente implements IPrinter {
 
     public String getSenha() {
         return senha;
+    }
+
+    public void setMatricula(Integer matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

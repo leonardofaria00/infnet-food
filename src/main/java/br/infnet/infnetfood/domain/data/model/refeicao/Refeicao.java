@@ -1,10 +1,13 @@
 package br.infnet.infnetfood.domain.data.model.refeicao;
 
+import br.infnet.infnetfood.domain.data.model.order.Order;
+import br.infnet.infnetfood.domain.data.model.usuario.Usuario;
 import br.infnet.infnetfood.domain.data.model.utils.ModelUtils;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +21,13 @@ public abstract class Refeicao extends ModelUtils implements IPrinter {
     private String uuid;
     private String nome;
     private BigDecimal valor;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
+    @ManyToMany(mappedBy = "refeicaos")
+    private List<Order> orders;
 
     public abstract BigDecimal calcularVenda();
 
@@ -51,6 +61,22 @@ public abstract class Refeicao extends ModelUtils implements IPrinter {
 
     public BigDecimal getValor() {
         return valor;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

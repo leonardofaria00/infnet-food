@@ -6,6 +6,7 @@ import br.infnet.infnetfood.infrastructure.persistence.order.OrderMySQLRepositor
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.UUID;
 
 @Component
@@ -18,8 +19,8 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public Order getAllOrders() {
-        return (Order) repository.findAll();
+    public Collection<Order> getAllOrders() {
+        return (Collection<Order>) repository.findAll();
     }
 
     @Override
