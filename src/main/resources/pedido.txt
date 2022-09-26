@@ -1,0 +1,1 @@
+Pedido do cliente 1;Ratatouille;Beringela, tomate fresco, cebola roxa e abobrinha;47;2022700;Leonardo;123;User1;user@user.com;pw1234

@@ -16,6 +16,10 @@ public class Gerente implements IPrinter {
     private String nome;
     private String senha;
 
+    public Gerente() {
+
+    }
+
     public Gerente(final Integer matricula, final String nome, final String senha) {
 
         if (Objects.isNull(matricula)) {
@@ -33,10 +37,6 @@ public class Gerente implements IPrinter {
         this.matricula = matricula;
         this.nome = nome;
         this.senha = senha;
-    }
-
-    public Gerente() {
-
     }
 
     @Override
