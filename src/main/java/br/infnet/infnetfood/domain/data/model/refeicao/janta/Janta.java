@@ -4,25 +4,16 @@ import br.infnet.infnetfood.domain.data.model.refeicao.Refeicao;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 import br.infnet.infnetfood.domain.exception.JantaException;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
 @Entity
 @Table(name = "T_janta")
 public class Janta extends Refeicao implements IPrinter {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+
     private TipoJanta tipoJanta;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public void setTipoJanta(TipoJanta tipoJanta) {
         this.tipoJanta = tipoJanta;

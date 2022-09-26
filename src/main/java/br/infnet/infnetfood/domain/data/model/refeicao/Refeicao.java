@@ -3,16 +3,31 @@ package br.infnet.infnetfood.domain.data.model.refeicao;
 import br.infnet.infnetfood.domain.data.model.utils.ModelUtils;
 import br.infnet.infnetfood.domain.data.printer.IPrinter;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity
+@Table(name = "T_refeicao")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Refeicao extends ModelUtils implements IPrinter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String uuid;
     private String nome;
     private BigDecimal valor;
 
     public abstract BigDecimal calcularVenda();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
