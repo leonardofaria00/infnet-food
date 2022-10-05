@@ -29,4 +29,13 @@ public class OrderRepositoryImpl implements OrderRepository {
         order.setCreateDate(LocalDate.now());
         repository.save(order);
     }
+
+    @Override
+    public void remove(final Integer id) {
+        try {
+            repository.deleteById(id);
+        } catch (final Exception e) {
+            System.out.printf("Error to delete Order with id: ", id);
+        }
+    }
 }

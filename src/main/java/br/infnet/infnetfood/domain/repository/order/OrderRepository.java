@@ -9,4 +9,6 @@ public interface OrderRepository {
     Collection<Order> getAllOrders();
 
     void createOrder(Order order);
+
+    void remove(Integer id);
 }

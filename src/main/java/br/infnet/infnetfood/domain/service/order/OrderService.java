@@ -23,4 +23,9 @@ public class OrderService {
         orderRepository.createOrder(order);
         System.out.println("Order saved");
     }
+
+    public void remove(final Integer id) {
+        orderRepository.remove(id);
+        System.out.printf("Order with id: {} as deleted%n", id);
+    }
 }
